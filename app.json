@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "RoiBooster",
+    "slug": "RoiBooster",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icons/roibooster.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/icons/roibooster.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icons/roibooster.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
