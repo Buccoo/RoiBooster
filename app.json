@@ -4,7 +4,7 @@
     "slug": "RoiBooster",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icons/roibooster.png",
+    "icon": "./assets/favicon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/icons/roibooster.png",
@@ -20,7 +20,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icons/roibooster.png",
+        "foregroundImage": "./assets/favicon.png",
         "backgroundColor": "#FFFFFF"
       }
     },

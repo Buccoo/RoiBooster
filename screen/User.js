@@ -8,7 +8,7 @@ import { COLORS, icons, SIZES, FONTS } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 
 //HOMESCREEN COMPONENT
-export default function Esiti() {
+export default function User() {
   const navigation = useNavigation();
 
   const renderHeader = () => {
@@ -29,7 +29,7 @@ export default function Esiti() {
             marginTop: 50,
           }}
         >
-          ESITI
+          PROFILO
         </Text>
       </View>
     );
