@@ -35,35 +35,11 @@ export default function HomeScreen() {
     );
   };
 
-  const renderImage = () => {
-    return (
-      <View
-        style={{
-          height: SIZES.height * 0.3,
-          backgroundColor: COLORS.white,
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          marginBottom: 50,
-        }}
-      >
-        <Image
-          source={icons.roibooster}
-          style={{
-            resizeMode: "contain",
-            width: 350,
-            height: 400,
-          }}
-        />
-      </View>
-    );
-  };
-
   const renderBody = () => {
     return (
       <View
         style={{
-          height: SIZES.height * 0.5,
+          height: SIZES.height,
           backgroundColor: COLORS.white,
           flexDirection: "column",
           alignItems: "center",
@@ -74,12 +50,12 @@ export default function HomeScreen() {
             backgroundColor: COLORS.primary,
             width: SIZES.width * 0.7,
             height: 50,
-            marginTop: 20,
+            marginTop: 300,
             borderRadius: SIZES.radius * 0.5,
             justifyContent: "center",
             alignItems: "center",
           }}
-          onPress={() => navigation.navigate("Esiti")}
+          onPress={() => navigation.navigate("Esiti2")}
         >
           <Text
             style={{
@@ -117,7 +93,6 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       {renderHeader()}
-      {renderImage()}
       {renderBody()}
     </View>
   );

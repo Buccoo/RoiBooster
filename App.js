@@ -4,6 +4,7 @@ import * as Font from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { icons, COLORS, SIZES, FONTS } from "./constants";
 
@@ -11,8 +12,11 @@ import { icons, COLORS, SIZES, FONTS } from "./constants";
 import HomeScreen from "./screen/HomeScreen";
 import Esiti from "./screen/Esiti";
 import User from "./screen/User";
+import Main from "./screen/Main";
+import Login from "./screen/Login";
+import Esiti2 from "./screen/Esiti2";
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 //APP COMPONENT
 export default function App() {
@@ -40,14 +44,45 @@ export default function App() {
         </View>
       ) : (
         <NavigationContainer>
-          <Tab.Navigator
+          <Stack.Navigator
             screenOptions={{
               headerShown: false,
             }}
           >
-            <Tab.Screen name="HomeScreen" component={HomeScreen} />
-            <Tab.Screen name="Esiti" component={Esiti} />
-            <Tab.Screen
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Main" component={Main} />
+            <Stack.Screen name="Esiti2" component={Esiti2} />
+            <Stack.Screen
+              name="HomeScreen"
+              component={HomeScreen}
+              options={{
+                title: "Home",
+                tabBarIcon: ({ size, focused, color }) => {
+                  return (
+                    <Image
+                      style={{ width: SIZES.h1, height: SIZES.h1 }}
+                      source={icons.user}
+                    />
+                  );
+                },
+              }}
+            />
+            <Stack.Screen
+              name="Esiti"
+              component={Esiti}
+              options={{
+                title: "File Esiti",
+                tabBarIcon: ({ size, focused, color }) => {
+                  return (
+                    <Image
+                      style={{ width: SIZES.h1, height: SIZES.h1 }}
+                      source={icons.esiti}
+                    />
+                  );
+                },
+              }}
+            />
+            <Stack.Screen
               name="User"
               component={User}
               options={{
@@ -62,7 +97,7 @@ export default function App() {
                 },
               }}
             />
-          </Tab.Navigator>
+          </Stack.Navigator>
         </NavigationContainer>
       )}
     </View>

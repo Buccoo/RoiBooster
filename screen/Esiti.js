@@ -1,11 +1,19 @@
 /** @format */
 import * as React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { COLORS, icons, SIZES, FONTS } from "../constants";
 import { useNavigation } from "@react-navigation/native";
+import Signal from "./components/Signal";
 
 //HOMESCREEN COMPONENT
 export default function Esiti() {
@@ -37,14 +45,28 @@ export default function Esiti() {
 
   const renderBody = () => {
     return (
-      <View
-        style={{
-          height: SIZES.height * 0.5,
-          backgroundColor: COLORS.white,
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      ></View>
+      <ScrollView>
+        <View
+          style={{
+            backgroundColor: COLORS.white,
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Signal />
+          <Signal />
+          <Signal />
+          <Signal />
+          <Signal />
+          <Signal />
+          <Signal />
+          <Signal />
+          <Signal />
+          <Signal />
+          <Signal />
+          <Signal />
+        </View>
+      </ScrollView>
     );
   };
 

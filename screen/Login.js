@@ -11,21 +11,28 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
+import { COLORS, icons, SIZES, FONTS } from "../constants";
+import { NavigationContainer } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
-export default function App() {
+export default function Login() {
+  const navigation = useNavigation();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const em = "ppp";
+  const pass = "ppp";
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("./assets/log2.png")} />
+      <Image style={styles.image} source={icons.roibooster} />
 
-      {/* <StatusBar style="auto" /> */}
+      <StatusBar style="auto" />
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
+          placeholder="Email"
+          placeholderTextColor={COLORS.white}
           onChangeText={email => setEmail(email)}
         />
       </View>
@@ -33,8 +40,8 @@ export default function App() {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Password."
-          placeholderTextColor="#003f5c"
+          placeholder="Password"
+          placeholderTextColor={COLORS.white}
           secureTextEntry={true}
           onChangeText={password => setPassword(password)}
         />
@@ -44,7 +51,13 @@ export default function App() {
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity
+        style={styles.loginBtn}
+        onPress={() => {
+          // if (email == em && password == pass) navigation.navigate("Main");
+          navigation.navigate("Main");
+        }}
+      >
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
@@ -54,17 +67,18 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.white,
     alignItems: "center",
-    justifyContent: "center",
   },
 
   image: {
-    marginBottom: 40,
+    width: SIZES.width * 0.8,
+    height: SIZES.height * 0.45,
+    resizeMode: "contain",
   },
 
   inputView: {
-    backgroundColor: "#FFC0CB",
+    backgroundColor: COLORS.secondary,
     borderRadius: 30,
     width: "70%",
     height: 45,
@@ -92,6 +106,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    backgroundColor: "#FF1493",
+    backgroundColor: COLORS.primary,
+  },
+
+  loginText: {
+    color: COLORS.white,
   },
 });
