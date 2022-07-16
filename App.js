@@ -14,7 +14,6 @@ import Esiti from "./screen/Esiti";
 import User from "./screen/User";
 import Main from "./screen/Main";
 import Login from "./screen/Login";
-import Esiti2 from "./screen/Esiti2";
 
 const Stack = createNativeStackNavigator();
 
@@ -51,7 +50,6 @@ export default function App() {
           >
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Main" component={Main} />
-            <Stack.Screen name="Esiti2" component={Esiti2} />
             <Stack.Screen
               name="HomeScreen"
               component={HomeScreen}

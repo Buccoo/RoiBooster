@@ -11,7 +11,6 @@ import { icons, COLORS, SIZES, FONTS } from "../constants";
 import HomeScreen from "./HomeScreen";
 import Esiti from "./Esiti";
 import User from "./User";
-import Esiti2 from "./Esiti2";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +24,21 @@ export default function Main() {
         }}
       >
         <Tab.Screen name="HomeScreen" component={HomeScreen} />
-        <Tab.Screen name="Esiti" component={Esiti2} />
+        <Tab.Screen
+          name="Esiti"
+          component={Esiti}
+          options={{
+            title: "Esiti",
+            tabBarIcon: ({ size, focused, color }) => {
+              return (
+                <Image
+                  style={{ width: SIZES.h1, height: SIZES.h1 }}
+                  source={icons.user}
+                />
+              );
+            },
+          }}
+        />
         <Tab.Screen
           name="User"
           component={User}
