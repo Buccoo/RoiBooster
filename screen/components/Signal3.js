@@ -53,7 +53,7 @@ export default function Signal3() {
                 <Row
                   data={rowData}
                   flexArr={[1, 1, 1]}
-                  style={rowData == "SHORT" ? styles.short : styles.row}
+                  style={rowData[2] == "SHORT" ? styles.short : styles.row}
                   textStyle={styles.text}
                 />
               );
