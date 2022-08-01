@@ -18,7 +18,7 @@ export const label = ["Ingresso", "Target"];
 export const ROI = "728,33%";
 export const valori = ["1.9429", "1.8345"];
 
-export default function Signal() {
+export default function Signal(props) {
   return (
     <View style={styles.container}>
       <View style={styles.mainCardView}>
@@ -31,26 +31,43 @@ export default function Signal() {
               textTransform: "uppercase",
             }}
           >
-            GBPAUD
+            {props.simbol.substring(0, 6)}
           </Text>
         </View>
         <View style={styles.right}>
           <View style={styles.labelValues}>
-            {valori.map((s, i) => (
-              <View style={styles.labelValue} key={s + i}>
-                <View style={styles.label}>
-                  <Text style={{ color: COLORS.white }}>{label[i]}</Text>
-                </View>
-                <TouchableOpacity
-                  style={styles.value}
-                  onPress={() =>
-                    alert("Hai copiato negli appunti: " + `${label[i]}`)
-                  }
-                >
-                  <Text style={{ color: COLORS.white }}>{s}</Text>
-                </TouchableOpacity>
+            {/* INGRESSO MEDIO */}
+            <View style={styles.labelValue} key={props.data["ingressoMedio"]}>
+              <View style={styles.label}>
+                <Text style={{ color: COLORS.black }}>{label[0]}</Text>
               </View>
-            ))}
+              <TouchableOpacity
+                style={styles.value}
+                onPress={() =>
+                  alert("Hai copiato negli appunti: " + `${label[0]}`)
+                }
+              >
+                <Text style={{ color: COLORS.white }}>
+                  {props.data["ingressoMedio"]}
+                </Text>
+              </TouchableOpacity>
+            </View>
+            {/* TARGET */}
+            <View style={styles.labelValue} key={props.data["uscita"]}>
+              <View style={styles.label}>
+                <Text style={{ color: COLORS.black }}>{label[1]}</Text>
+              </View>
+              <TouchableOpacity
+                style={styles.value}
+                onPress={() =>
+                  alert("Hai copiato negli appunti: " + `${label[1]}`)
+                }
+              >
+                <Text style={{ color: COLORS.white }}>
+                  {props.data["uscita"]}
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
           {/* ROI + tasto scorpidi più */}
@@ -72,11 +89,14 @@ export default function Signal() {
                 marginLeft: 20,
               }}
             >
-              ROI {ROI}
+              ROI {props.data["ROI"]}
             </Text>
             <View
               style={{
-                backgroundColor: COLORS.red3,
+                backgroundColor:
+                  props.data["direzioneDaily"] == "SHORT"
+                    ? COLORS.red3
+                    : COLORS.green1,
                 width: 90,
                 height: SIZES.height * 0.04,
                 borderRadius: 50,
@@ -93,7 +113,7 @@ export default function Signal() {
                   fontWeight: "bold",
                 }}
               >
-                SHORT
+                {props.data["direzioneDaily"]}
               </Text>
             </View>
             <TouchableOpacity>
@@ -154,7 +174,7 @@ const styles = StyleSheet.create({
   },
   labelValues: {
     width: SIZES.width * 0.2,
-    flexDirection: "column",
+    flexDirection: "row",
     flexWrap: "wrap",
     display: "block",
     alignItems: "center",

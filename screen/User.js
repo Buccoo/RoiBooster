@@ -1,5 +1,5 @@
 /** @format */
-import * as React from "react";
+import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -10,6 +10,8 @@ import { useNavigation } from "@react-navigation/native";
 //HOMESCREEN COMPONENT
 export default function User() {
   const navigation = useNavigation();
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(true);
 
   const renderHeader = () => {
     return (
@@ -44,7 +46,23 @@ export default function User() {
           flexDirection: "column",
           alignItems: "center",
         }}
-      ></View>
+      >
+        <Text
+          style={{
+            color: "black",
+            fontSize: 16,
+            fontWeight: "bold",
+          }}
+        >
+          CIAOIOOOOOOOOOOOOOo
+        </Text>
+        <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => console.log("vciso")}
+        >
+          <Text>PRESS</Text>
+        </TouchableOpacity>
+      </View>
     );
   };
 
@@ -61,5 +79,14 @@ const styles = StyleSheet.create({
     height: SIZES.height,
     width: SIZES.width,
     backgroundColor: COLORS.white,
+  },
+  loginBtn: {
+    width: "80%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 40,
+    backgroundColor: COLORS.primary,
   },
 });

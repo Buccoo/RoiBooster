@@ -54,17 +54,6 @@ export default function Esiti_riserva() {
           }}
         >
           <Signal />
-          <Signal />
-          <Signal />
-          <Signal />
-          <Signal />
-          <Signal />
-          <Signal />
-          <Signal />
-          <Signal />
-          <Signal />
-          <Signal />
-          <Signal />
         </View>
       </ScrollView>
     );

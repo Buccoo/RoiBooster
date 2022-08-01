@@ -55,7 +55,7 @@ export default function HomeScreen() {
             justifyContent: "center",
             alignItems: "center",
           }}
-          onPress={() => navigation.navigate("Esiti2")}
+          onPress={() => navigation.navigate("Esiti")}
         >
           <Text
             style={{

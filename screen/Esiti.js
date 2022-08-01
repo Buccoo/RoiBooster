@@ -14,18 +14,20 @@ import {
 import Signal from "./components/Signal";
 import { COLORS, icons, SIZES, FONTS } from "../constants";
 import { useNavigation } from "@react-navigation/native";
-import Signal2 from "./components/Signal2";
-import Signal3 from "./components/Signal3";
+// import Signal2 from "./components/Signal2";
+// import Signal3 from "./components/Signal3";
 
 const images = new Array(6).fill(
   "https://images.unsplash.com/photo-1556740749-887f6717d7e4"
 );
 const infoSignal = [1, 2, 3];
+const data = require("D:/Programmazione/RoiBooster/sheets.json");
 
 const Esiti = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
-
   const { width: windowWidth } = useWindowDimensions();
+
+  const keys = Object.keys(data);
 
   const navigation = useNavigation();
 
@@ -57,9 +59,9 @@ const Esiti = () => {
     <SafeAreaView style={styles.container}>
       {renderHeader()}
       <ScrollView horizontal={false} showsHorizontalScrollIndicator={false}>
-        {images.map((e, i) => {
+        {keys.map((k, index) => {
           return (
-            <View style={styles.scrollContainer}>
+            <View style={styles.scrollContainer} key={index}>
               <ScrollView
                 horizontal={true}
                 pagingEnabled
@@ -79,9 +81,13 @@ const Esiti = () => {
                 scrollEventThrottle={1}
               >
                 {infoSignal.map((num, imageIndex) => {
-                  if (num == 1) return <Signal />;
-                  else if (num == 2) return <Signal2 />;
-                  else if (num == 3) return <Signal3 />;
+                  if (num == 1) {
+                    return <Signal simbol={k} data={data[k]} key={k} />;
+                  }
+                  // } else if (num == 2)
+                  //   return <Signal2 simbol={k} data={data[k]} />;
+                  // else if (num == 3)
+                  //   return <Signal3 simbol={k} data={data[k]} />;
                 })}
               </ScrollView>
               <View style={styles.indicatorContainer}>
