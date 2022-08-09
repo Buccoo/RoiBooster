@@ -1,7 +1,14 @@
 /** @format */
 import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { COLORS, icons, SIZES, FONTS } from "../constants";
@@ -18,20 +25,21 @@ export default function User() {
       <View
         style={{
           height: SIZES.height * 0.15,
-          backgroundColor: COLORS.primary,
+          backgroundColor: COLORS.black,
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          alignItems: "start",
+          justifyContent: "start",
         }}
       >
         <Text
           style={{
             ...FONTS.h1,
             color: COLORS.white,
-            marginTop: 50,
+            marginLeft: 40,
+            marginTop: 30,
           }}
         >
-          PROFILO
+          UTENTE
         </Text>
       </View>
     );
@@ -42,7 +50,7 @@ export default function User() {
       <View
         style={{
           height: SIZES.height * 0.5,
-          backgroundColor: COLORS.white,
+          backgroundColor: COLORS.black,
           flexDirection: "column",
           alignItems: "center",
         }}
@@ -67,10 +75,10 @@ export default function User() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {renderHeader()}
       {renderBody()}
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -78,7 +86,7 @@ const styles = StyleSheet.create({
   container: {
     height: SIZES.height,
     width: SIZES.width,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.black,
   },
   loginBtn: {
     width: "80%",

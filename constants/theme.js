@@ -5,10 +5,12 @@ const { width, height } = Dimensions.get("window");
 
 export const COLORS = {
   // base colors
-  primary: "#343c88", // blu scuro
-  secondary: "#6a71a9", // blu chiaro
-
+  primary: "#B4812A", // oro/marroncino
+  secondary: "#F5DD64", // oro/giallo
+  terziary: "#F4E38B", // oro/giallo chiaro
   // colors
+  gold: "#C99F47",
+  gray: "3E3D40",
   black: "#1E1F20",
   white: "#FFFFFF",
 
@@ -50,36 +52,36 @@ export const SIZES = {
 
 export const FONTS = {
   largeTitle: {
-    fontFamily: "Roboto-regular",
+    fontFamily: "Baskerville",
     fontSize: SIZES.largeTitle,
     lineHeight: 55,
   },
-  h1: { fontFamily: "Roboto-Black", fontSize: SIZES.h1, lineHeight: 36 },
-  h2: { fontFamily: "Roboto-Bold", fontSize: SIZES.h2, lineHeight: 30 },
-  h3: { fontFamily: "Roboto-Bold", fontSize: SIZES.h3, lineHeight: 22 },
-  h4: { fontFamily: "Roboto-Bold", fontSize: SIZES.h4, lineHeight: 22 },
+  h1: { fontFamily: "Baskerville", fontSize: SIZES.h1, lineHeight: 36 },
+  h2: { fontFamily: "Baskerville", fontSize: SIZES.h2, lineHeight: 30 },
+  h3: { fontFamily: "Baskerville", fontSize: SIZES.h3, lineHeight: 22 },
+  h4: { fontFamily: "Baskerville", fontSize: SIZES.h4, lineHeight: 22 },
   body1: {
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Baskerville",
     fontSize: SIZES.body1,
     lineHeight: 36,
   },
   body2: {
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Baskerville",
     fontSize: SIZES.body2,
     lineHeight: 30,
   },
   body3: {
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Baskerville",
     fontSize: SIZES.body3,
     lineHeight: 22,
   },
   body4: {
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Baskerville",
     fontSize: SIZES.body4,
     lineHeight: 22,
   },
   body5: {
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Baskerville",
     fontSize: SIZES.body5,
     lineHeight: 22,
   },

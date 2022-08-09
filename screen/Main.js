@@ -21,9 +21,26 @@ export default function Main() {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
+          tabBarShowLabel: false,
+          activeTintColor: COLORS.gray,
+          inactiveTintColor: "black",
         }}
       >
-        <Tab.Screen name="HomeScreen" component={HomeScreen} />
+        <Tab.Screen
+          name="HomeScreen"
+          component={HomeScreen}
+          options={{
+            title: "Esiti",
+            tabBarIcon: ({ size, focused, color }) => {
+              return (
+                <Image
+                  style={{ width: SIZES.largeTitle, height: SIZES.h1 }}
+                  source={icons.tdwhite}
+                />
+              );
+            },
+          }}
+        />
         <Tab.Screen
           name="Esiti"
           component={Esiti}
@@ -33,7 +50,7 @@ export default function Main() {
               return (
                 <Image
                   style={{ width: SIZES.h1, height: SIZES.h1 }}
-                  source={icons.user}
+                  source={icons.scopridipiu}
                 />
               );
             },
@@ -63,6 +80,6 @@ const styles = StyleSheet.create({
   container: {
     height: SIZES.height,
     width: SIZES.width,
-    backgroundColor: COLORS.secondary,
   },
+  tab: {},
 });

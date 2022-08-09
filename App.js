@@ -3,7 +3,7 @@ import React from "react";
 import * as Font from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { icons, COLORS, SIZES, FONTS } from "./constants";
@@ -106,6 +106,5 @@ const styles = StyleSheet.create({
   container: {
     height: SIZES.height,
     width: SIZES.width,
-    backgroundColor: COLORS.secondary,
   },
 });

@@ -35,18 +35,20 @@ const Esiti = () => {
     return (
       <View
         style={{
-          height: SIZES.height * 0.1,
-          backgroundColor: COLORS.primary,
+          height: SIZES.height * 0.15,
+          backgroundColor: COLORS.black,
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          alignItems: "start",
+          justifyContent: "start",
         }}
       >
         <Text
           style={{
             ...FONTS.h1,
+            fontFamily: "Baskerville",
             color: COLORS.white,
-            marginTop: 50,
+            marginLeft: 40,
+            marginTop: 30,
           }}
         >
           ESITI
@@ -58,59 +60,14 @@ const Esiti = () => {
   return (
     <SafeAreaView style={styles.container}>
       {renderHeader()}
-      <ScrollView horizontal={false} showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        horizontal={false}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.contentContainerStyle}
+        style={styles.scrollContainer}
+      >
         {keys.map((k, index) => {
-          return (
-            <View style={styles.scrollContainer} key={index}>
-              <ScrollView
-                horizontal={true}
-                pagingEnabled
-                showsHorizontalScrollIndicator={false}
-                onScroll={Animated.event(
-                  [
-                    {
-                      nativeEvent: {
-                        contentOffset: {
-                          x: scrollX,
-                        },
-                      },
-                    },
-                  ],
-                  { useNativeDriver: false }
-                )}
-                scrollEventThrottle={1}
-              >
-                {infoSignal.map((num, imageIndex) => {
-                  if (num == 1) {
-                    return <Signal simbol={k} data={data[k]} key={k} />;
-                  }
-                  // } else if (num == 2)
-                  //   return <Signal2 simbol={k} data={data[k]} />;
-                  // else if (num == 3)
-                  //   return <Signal3 simbol={k} data={data[k]} />;
-                })}
-              </ScrollView>
-              <View style={styles.indicatorContainer}>
-                {infoSignal.map((image, imageIndex) => {
-                  const width = scrollX.interpolate({
-                    inputRange: [
-                      windowWidth * (imageIndex - 1),
-                      windowWidth * imageIndex,
-                      windowWidth * (imageIndex + 1),
-                    ],
-                    outputRange: [8, 16, 8],
-                    extrapolate: "clamp",
-                  });
-                  return (
-                    <Animated.View
-                      key={imageIndex}
-                      style={[styles.normalDot, { width }]}
-                    />
-                  );
-                })}
-              </View>
-            </View>
-          );
+          return <Signal simbol={k} data={data[k]} key={k} />;
         })}
       </ScrollView>
     </SafeAreaView>
@@ -121,12 +78,14 @@ const styles = StyleSheet.create({
   container: {
     height: SIZES.height,
     width: SIZES.width,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.black,
   },
   scrollContainer: {
-    height: SIZES.height * 0.25,
-    alignItems: "center",
+    backgroundColor: COLORS.black,
+  },
+  contentContainerStyle: {
     justifyContent: "center",
+    alignItems: "center",
   },
   card: {
     flex: 1,
@@ -147,18 +106,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
-  },
-  normalDot: {
-    height: 8,
-    width: 8,
-    borderRadius: 4,
-    backgroundColor: "silver",
-    marginHorizontal: 4,
-  },
-  indicatorContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
 

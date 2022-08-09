@@ -20,113 +20,120 @@ export const valori = ["1.9429", "1.8345"];
 
 export default function Signal(props) {
   return (
-    <View style={styles.container}>
-      <View style={styles.mainCardView}>
-        <View style={styles.simbolo}>
+    <View style={styles.mainCardView}>
+      <View style={styles.simbolo}>
+        <Text
+          style={{
+            ...FONTS.h2,
+            color: COLORS.gray,
+            fontWeight: "bold",
+            textTransform: "uppercase",
+          }}
+        >
+          {props.simbol.substring(0, 6)}
+        </Text>
+      </View>
+      <View style={styles.right}>
+        <View style={styles.labelValues}>
+          {/* INGRESSO MEDIO */}
+          <View style={styles.labelValue} key={props.data["ingressoMedio"]}>
+            <View style={styles.label}>
+              <Text style={{ color: COLORS.white, fontFamily: "Baskerville" }}>
+                {label[0]}
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.value}
+              onPress={() =>
+                alert("Hai copiato negli appunti: " + `${label[0]}`)
+              }
+            >
+              <Text style={{ color: COLORS.white, fontFamily: "Baskerville" }}>
+                {props.data["ingressoMedio"]}
+              </Text>
+            </TouchableOpacity>
+          </View>
+          {/* TARGET */}
+          <View style={styles.labelValue} key={props.data["uscita"]}>
+            <View style={styles.label}>
+              <Text style={{ color: COLORS.white, fontFamily: "Baskerville" }}>
+                {label[1]}
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.value}
+              onPress={() =>
+                alert("Hai copiato negli appunti: " + `${label[1]}`)
+              }
+            >
+              <Text style={{ color: COLORS.white, fontFamily: "Baskerville" }}>
+                {props.data["uscita"]}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* ROI + tasto scorpidi più */}
+        <View
+          style={{
+            width: SIZES.width * 0.4,
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "flex-end",
+          }}
+        >
           <Text
             style={{
-              fontSize: 20,
-              color: COLORS.white,
+              color: COLORS.terziary,
+              fontFamily: "Baskerville",
+              fontSize: 18,
               fontWeight: "bold",
-              textTransform: "uppercase",
+              textAlign: "right",
+              height: SIZES.height * 0.05,
+              marginRight: 10,
+              marginTop: 10,
             }}
           >
-            {props.simbol.substring(0, 6)}
+            ROI ATTESO {"\n"} {props.data["ROI"]}
           </Text>
-        </View>
-        <View style={styles.right}>
-          <View style={styles.labelValues}>
-            {/* INGRESSO MEDIO */}
-            <View style={styles.labelValue} key={props.data["ingressoMedio"]}>
-              <View style={styles.label}>
-                <Text style={{ color: COLORS.black }}>{label[0]}</Text>
-              </View>
-              <TouchableOpacity
-                style={styles.value}
-                onPress={() =>
-                  alert("Hai copiato negli appunti: " + `${label[0]}`)
-                }
-              >
-                <Text style={{ color: COLORS.white }}>
-                  {props.data["ingressoMedio"]}
-                </Text>
-              </TouchableOpacity>
-            </View>
-            {/* TARGET */}
-            <View style={styles.labelValue} key={props.data["uscita"]}>
-              <View style={styles.label}>
-                <Text style={{ color: COLORS.black }}>{label[1]}</Text>
-              </View>
-              <TouchableOpacity
-                style={styles.value}
-                onPress={() =>
-                  alert("Hai copiato negli appunti: " + `${label[1]}`)
-                }
-              >
-                <Text style={{ color: COLORS.white }}>
-                  {props.data["uscita"]}
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-
-          {/* ROI + tasto scorpidi più */}
           <View
             style={{
-              width: SIZES.width * 0.32,
-              marginTop: 10,
               marginRight: 10,
-              flexDirection: "column",
+              backgroundColor:
+                props.data["direzioneDaily"] == "SHORT"
+                  ? COLORS.red3
+                  : COLORS.green1,
+              width: 90,
+              height: SIZES.height * 0.04,
+              borderRadius: 50,
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: 10,
             }}
           >
             <Text
               style={{
-                color: "lightgreen",
-                fontSize: 18,
+                color: COLORS.white,
+                fontFamily: "Baskerville",
+                fontSize: 20,
                 fontWeight: "bold",
-                width: 90,
-                height: SIZES.height * 0.03,
-                marginLeft: 20,
               }}
             >
-              ROI {props.data["ROI"]}
+              {props.data["direzioneDaily"]}
             </Text>
-            <View
-              style={{
-                backgroundColor:
-                  props.data["direzioneDaily"] == "SHORT"
-                    ? COLORS.red3
-                    : COLORS.green1,
-                width: 90,
-                height: SIZES.height * 0.04,
-                borderRadius: 50,
-                justifyContent: "center",
-                alignItems: "center",
-                marginBottom: 10,
-                marginLeft: 20,
-              }}
-            >
-              <Text
-                style={{
-                  color: COLORS.white,
-                  fontSize: 20,
-                  fontWeight: "bold",
-                }}
-              >
-                {props.data["direzioneDaily"]}
-              </Text>
-            </View>
-            <TouchableOpacity>
-              <Image
-                style={{
-                  width: 35,
-                  height: 35,
-                  alignSelf: "flex-end",
-                }}
-                source={icons.scopridipiu}
-              />
-            </TouchableOpacity>
           </View>
+          <TouchableOpacity>
+            <Image
+              style={{
+                width: 35,
+                height: 35,
+                alignSelf: "flex-end",
+                marginRight: 10,
+                marginTop: 10,
+              }}
+              source={icons.downarrow}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -134,39 +141,29 @@ export default function Signal(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    height: SIZES.height,
-    width: SIZES.width,
-    backgroundColor: COLORS.white,
-  },
   mainCardView: {
-    height: SIZES.height * 0.2,
-    width: SIZES.width * 1,
+    height: SIZES.height * 0.15,
+    width: SIZES.width * 0.9,
     alignItems: "center",
-    backgroundColor: COLORS.white,
-    borderRadius: 0,
-    shadowColor: COLORS.secondary,
+    backgroundColor: "#565656",
+    borderRadius: 10,
+    shadowColor: COLORS.primary,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 1,
     shadowRadius: 8,
-    elevation: 8,
+    elevation: 10,
     flexDirection: "row",
     marginTop: 15,
-    marginBottom: 6,
-    borderRightWidth: 0,
+    marginBottom: 20,
   },
   simbolo: {
-    height: SIZES.height * 0.12,
-    width: SIZES.width * 0.25,
-    borderRadius: 50,
-    backgroundColor: COLORS.primary,
-    borderColor: COLORS.black,
-    borderWidth: 1,
-    borderStyle: "solid",
+    height: SIZES.height * 0.15,
+    width: SIZES.width * 0.3,
     alignItems: "center",
+    borderBottomLeftRadius: 10,
+    borderTopLeftRadius: 10,
     justifyContent: "center",
-    marginLeft: 20,
-    marginRight: 20,
+    backgroundColor: COLORS.primary,
   },
   right: {
     width: SIZES.width * 0.6,
@@ -180,10 +177,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  labelValue: { alignItems: "center", justifyContent: "space-between" },
+  labelValue: {
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginLeft: 20,
+  },
   value: {
     borderRadius: 4,
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.black,
     marginBottom: 10,
     width: SIZES.width * 0.19,
     height: SIZES.height * 0.04,

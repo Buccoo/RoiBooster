@@ -16,13 +16,17 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.roibooster.roibooster",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/favicon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.roibooster.roibooster",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"

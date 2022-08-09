@@ -25,7 +25,7 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={icons.roibooster} />
+      <Image style={styles.image} source={icons.tdwhite} />
 
       <StatusBar style="auto" />
       <View style={styles.inputView}>
