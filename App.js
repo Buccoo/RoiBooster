@@ -44,57 +44,14 @@ export default function App() {
       ) : (
         <NavigationContainer>
           <Stack.Navigator
-            screenOptions={{
-              headerShown: false,
-            }}
+            initialRouteName="Login"
+            screenOptions={{ headerShown: false }}
           >
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Main" component={Main} />
-            <Stack.Screen
-              name="HomeScreen"
-              component={HomeScreen}
-              options={{
-                title: "Home",
-                tabBarIcon: ({ size, focused, color }) => {
-                  return (
-                    <Image
-                      style={{ width: SIZES.h1, height: SIZES.h1 }}
-                      source={icons.user}
-                    />
-                  );
-                },
-              }}
-            />
-            <Stack.Screen
-              name="Esiti"
-              component={Esiti}
-              options={{
-                title: "File Esiti",
-                tabBarIcon: ({ size, focused, color }) => {
-                  return (
-                    <Image
-                      style={{ width: SIZES.h1, height: SIZES.h1 }}
-                      source={icons.esiti}
-                    />
-                  );
-                },
-              }}
-            />
-            <Stack.Screen
-              name="User"
-              component={User}
-              options={{
-                title: "Profilo",
-                tabBarIcon: ({ size, focused, color }) => {
-                  return (
-                    <Image
-                      style={{ width: SIZES.h1, height: SIZES.h1 }}
-                      source={icons.user}
-                    />
-                  );
-                },
-              }}
-            />
+            <Stack.Screen name="HomeScreen" component={HomeScreen} />
+            <Stack.Screen name="Esiti" component={Esiti} />
+            <Stack.Screen name="User" component={User} />
           </Stack.Navigator>
         </NavigationContainer>
       )}

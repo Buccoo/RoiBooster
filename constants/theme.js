@@ -10,7 +10,7 @@ export const COLORS = {
   terziary: "#F4E38B", // oro/giallo chiaro
   // colors
   gold: "#C99F47",
-  gray: "3E3D40",
+  gray: "#3E3D40",
   black: "#1E1F20",
   white: "#FFFFFF",
 

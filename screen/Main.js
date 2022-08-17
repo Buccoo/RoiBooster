@@ -19,26 +19,25 @@ export default function Main() {
   return (
     <View style={styles.container}>
       <Tab.Navigator
+        initialRouteName="HomeScreen"
         screenOptions={{
           headerShown: false,
-          tabBarShowLabel: false,
-          activeTintColor: COLORS.gray,
-          inactiveTintColor: "black",
         }}
       >
         <Tab.Screen
           name="HomeScreen"
           component={HomeScreen}
           options={{
-            title: "Esiti",
-            tabBarIcon: ({ size, focused, color }) => {
-              return (
-                <Image
-                  style={{ width: SIZES.largeTitle, height: SIZES.h1 }}
-                  source={icons.tdwhite}
-                />
-              );
-            },
+            title: "Home",
+            tabBarIcon: ({ focused, color, size }) => (
+              <Image
+                style={{
+                  width: SIZES.largeTitle,
+                  height: SIZES.h1,
+                }}
+                source={icons.tdwhite}
+              />
+            ),
           }}
         />
         <Tab.Screen

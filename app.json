@@ -7,7 +7,7 @@
     "icon": "./assets/favicon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/icons/roibooster.png",
+      "image": "./assets/icons/tdwhite.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

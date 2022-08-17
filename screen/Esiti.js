@@ -10,6 +10,8 @@ import {
   ImageBackground,
   Animated,
   useWindowDimensions,
+  AnimatedFlatList,
+  FlatList,
 } from "react-native";
 import Signal from "./components/Signal";
 import { COLORS, icons, SIZES, FONTS } from "../constants";
@@ -66,8 +68,8 @@ const Esiti = () => {
         contentContainerStyle={styles.contentContainerStyle}
         style={styles.scrollContainer}
       >
-        {keys.map((k, index) => {
-          return <Signal simbol={k} data={data[k]} key={k} />;
+        {keys.map((s, i) => {
+          return <Signal simbol={s} data={data[s]} key={s + i} />;
         })}
       </ScrollView>
     </SafeAreaView>

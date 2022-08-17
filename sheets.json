@@ -44,7 +44,7 @@
     "varPrezzoIeri": "-0,01%",
     "varPrezzoLivIngr": "-0,24%",
     "entrareAMercato": "SI",
-    "direzioneDaily": "SHORT",
+    "direzioneDaily": "LONG",
     "direzioneWeekly": "SHORT",
     "confermaIngressoDW": "IN",
     "concordanzaSBS": "SHORT",
