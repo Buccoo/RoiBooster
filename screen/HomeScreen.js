@@ -23,7 +23,7 @@ export default function HomeScreen() {
       <View
         style={{
           height: SIZES.height * 0.15,
-          backgroundColor: COLORS.black,
+          backgroundColor: COLORS.white,
           flexDirection: "column",
           alignItems: "start",
           justifyContent: "start",
@@ -32,7 +32,7 @@ export default function HomeScreen() {
         <Text
           style={{
             ...FONTS.h1,
-            color: COLORS.white,
+            color: COLORS.black,
             marginLeft: 40,
             marginTop: 30,
           }}
@@ -48,7 +48,7 @@ export default function HomeScreen() {
       <View
         style={{
           height: SIZES.height,
-          backgroundColor: COLORS.black,
+          backgroundColor: COLORS.white,
           flexDirection: "column",
           alignItems: "center",
         }}
@@ -90,6 +90,6 @@ const styles = StyleSheet.create({
   container: {
     height: SIZES.height,
     width: SIZES.width,
-    backgroundColor: COLORS.black,
+    backgroundColor: COLORS.white,
   },
 });

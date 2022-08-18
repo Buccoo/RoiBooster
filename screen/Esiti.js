@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -22,10 +22,10 @@ import { useNavigation } from "@react-navigation/native";
 const images = new Array(6).fill(
   "https://images.unsplash.com/photo-1556740749-887f6717d7e4"
 );
-const infoSignal = [1, 2, 3];
-const data = require("D:/Programmazione/RoiBooster/sheets.json");
+const data = require("../sheets.json");
 
 const Esiti = () => {
+  const [multiplier, setMultiplier] = useState(2);
   const scrollX = useRef(new Animated.Value(0)).current;
   const { width: windowWidth } = useWindowDimensions();
 
@@ -38,7 +38,7 @@ const Esiti = () => {
       <View
         style={{
           height: SIZES.height * 0.15,
-          backgroundColor: COLORS.black,
+          backgroundColor: COLORS.white,
           flexDirection: "column",
           alignItems: "start",
           justifyContent: "start",
@@ -48,7 +48,7 @@ const Esiti = () => {
           style={{
             ...FONTS.h1,
             fontFamily: "Baskerville",
-            color: COLORS.white,
+            color: COLORS.black,
             marginLeft: 40,
             marginTop: 30,
           }}
@@ -80,14 +80,14 @@ const styles = StyleSheet.create({
   container: {
     height: SIZES.height,
     width: SIZES.width,
-    backgroundColor: COLORS.black,
+    backgroundColor: COLORS.white,
   },
-  scrollContainer: {
-    backgroundColor: COLORS.black,
-  },
+  scrollContainer: {},
   contentContainerStyle: {
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
+    height: SIZES.height * 2,
+    backgroundColor: COLORS.white,
   },
   card: {
     flex: 1,
