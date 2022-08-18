@@ -524,10 +524,11 @@ export default function Signal(props) {
 
 const styles = StyleSheet.create({
   mainCardView: {
+    alignSelf: "center",
     height: SIZES.height * 0.15,
     width: SIZES.width * 0.9,
     alignItems: "center",
-    backgroundColor: COLORS.gray,
+    backgroundColor: COLORS.primary,
     borderRadius: 10,
     shadowColor: COLORS.primary,
     shadowOffset: { width: 0, height: 0 },
@@ -541,7 +542,7 @@ const styles = StyleSheet.create({
   mainCardViewExp: {
     height: SIZES.height * 0.6,
     width: SIZES.width * 0.9,
-    backgroundColor: COLORS.gray,
+    backgroundColor: COLORS.primary,
     borderRadius: 10,
     shadowColor: COLORS.primary,
     shadowOffset: { width: 0, height: 0 },
@@ -560,7 +561,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderRightWidth: 2,
     justifyContent: "center",
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.terziary,
   },
   right: {
     width: SIZES.width * 0.6,

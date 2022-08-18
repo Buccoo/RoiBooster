@@ -1,7 +1,7 @@
 /** @format */
 
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -17,11 +17,26 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Login() {
   const navigation = useNavigation();
-
+  const [data, setData] = useState([]);
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const em = "ppp";
   const pass = "ppp";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://tradingstatistico.it/area-riservata/api/check-access/by-login-pass?_key=KPXah4CkwMEtYfvoNp8F&login=${username}&pass=${password}`
+      );
+      const newData = await response.json();
+      setData(newData);
+    };
+
+    fetchData();
+  }, [password]);
+
+  function checkUser() {}
 
   return (
     <View style={styles.container}>
@@ -31,9 +46,9 @@ export default function Login() {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Email"
+          placeholder="Username/Email"
           placeholderTextColor={COLORS.white}
-          onChangeText={email => setEmail(email)}
+          onChangeText={username => setUsername(username)}
         />
       </View>
 
@@ -54,8 +69,22 @@ export default function Login() {
       <TouchableOpacity
         style={styles.loginBtn}
         onPress={() => {
-          // if (email == em && password == pass) navigation.navigate("Main");
-          navigation.navigate("Main");
+          checkUser();
+          if (data.ok) {
+            if (Object.keys(data.subscriptions).length > 0) {
+              alert(
+                `Login Riuscito con Username: ${data.login} e Password: ${password}`
+              );
+              navigation.navigate("Main");
+            } else
+              alert(
+                `data.ok= ${data.ok} ---- data.login = ${
+                  data.login
+                } ------- data.subscription = ${
+                  Object.keys(data.subscriptions).length
+                }`
+              );
+          } else navigation.navigate("User");
         }}
       >
         <Text style={styles.loginText}>LOGIN</Text>

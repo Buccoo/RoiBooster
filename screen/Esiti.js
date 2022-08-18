@@ -25,7 +25,7 @@ const images = new Array(6).fill(
 const data = require("../sheets.json");
 
 const Esiti = () => {
-  const [multiplier, setMultiplier] = useState(2);
+  const [multiplier, setMultiplier] = useState(3);
   const scrollX = useRef(new Animated.Value(0)).current;
   const { width: windowWidth } = useWindowDimensions();
 
@@ -40,8 +40,8 @@ const Esiti = () => {
           height: SIZES.height * 0.15,
           backgroundColor: COLORS.white,
           flexDirection: "column",
-          alignItems: "start",
-          justifyContent: "start",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Text
@@ -65,8 +65,7 @@ const Esiti = () => {
       <ScrollView
         horizontal={false}
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainerStyle}
-        style={styles.scrollContainer}
+        contentContainerStyle={styles(multiplier).contentContainerStyle}
       >
         {keys.map((s, i) => {
           return <Signal simbol={s} data={data[s]} key={s + i} />;
@@ -76,39 +75,38 @@ const Esiti = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    height: SIZES.height,
-    width: SIZES.width,
-    backgroundColor: COLORS.white,
-  },
-  scrollContainer: {},
-  contentContainerStyle: {
-    justifyContent: "flex-start",
-    alignItems: "center",
-    height: SIZES.height * 2,
-    backgroundColor: COLORS.white,
-  },
-  card: {
-    flex: 1,
-    marginVertical: 4,
-    marginHorizontal: 16,
-    borderRadius: 5,
-    overflow: "hidden",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  textContainer: {
-    backgroundColor: "rgba(0,0,0, 0.7)",
-    paddingHorizontal: 24,
-    paddingVertical: 8,
-    borderRadius: 5,
-  },
-  infoText: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-});
+const styles = multiplier =>
+  StyleSheet.create({
+    container: {
+      height: SIZES.height,
+      width: SIZES.width,
+      backgroundColor: COLORS.white,
+    },
+    contentContainerStyle: {
+      alignItems: "center",
+      height: SIZES.height * multiplier,
+      backgroundColor: COLORS.white,
+    },
+    card: {
+      flex: 1,
+      marginVertical: 4,
+      marginHorizontal: 16,
+      borderRadius: 5,
+      overflow: "hidden",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    textContainer: {
+      backgroundColor: "rgba(0,0,0, 0.7)",
+      paddingHorizontal: 24,
+      paddingVertical: 8,
+      borderRadius: 5,
+    },
+    infoText: {
+      color: "white",
+      fontSize: 16,
+      fontWeight: "bold",
+    },
+  });
 
 export default Esiti;
